@@ -42,6 +42,6 @@ jobs:
         with:
           name: build
       - name: List files
-        run: ls -la dist
+        run: ls -la build
       - name: Deploy
         run: echo "Deploying..."
