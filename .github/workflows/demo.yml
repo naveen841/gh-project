@@ -33,14 +33,15 @@ jobs:
           name: build
           path: |
             dist
-      - name: download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: build
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+      - name: List files
+        run: ls -la dist
       - name: Deploy
         run: echo "Deploying..."
