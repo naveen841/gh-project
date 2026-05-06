@@ -7,10 +7,15 @@ on:
       - main
 jobs:
   test:
+    env:
+      name: ${{secrets.Name}}
     runs-on: ubuntu-latest
     steps:
       - name: Get code
         uses: actions/checkout@v3
+      - name: get name
+        run: |
+           echo "${{env.name}}"
       - name: cache dependencies
         uses: actions/cache@v3
         with: 
